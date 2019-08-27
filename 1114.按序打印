@@ -1,6 +1,8 @@
+//方法一:通过valatile(易变的)修饰变量和while循环判断。
 class Foo {
     private volatile boolean firstExecute;
     private volatile boolean secondExecute;
+    //如果不使用volatile,则会在while循环中一直等待,测试用例整体运行时间超时
     //private boolean firstExecute;
     //private boolean secondExecute;
     public Foo() {
@@ -26,6 +28,36 @@ class Foo {
         while(!secondExecute){
             
         }
+        // printThird.run() outputs "third". Do not change or remove this line.
+        printThird.run();
+    }
+}
+
+//方法二:通过信号量semaphore(permits初始化为0)判断
+import  java.util.concurrent.Semaphore;
+class Foo {
+    private final Semaphore semaphoreFirst = new Semaphore(0,true);
+    private final Semaphore semaphoreSecond = new Semaphore(0,true);
+    
+    public Foo() {
+        
+    }
+
+    public void first(Runnable printFirst) throws InterruptedException {
+        // printFirst.run() outputs "first". Do not change or remove this line.
+        printFirst.run();
+        semaphoreFirst.release();
+    }
+
+    public void second(Runnable printSecond) throws InterruptedException {
+        semaphoreFirst.acquire();
+        // printSecond.run() outputs "second". Do not change or remove this line.
+        printSecond.run();
+        semaphoreSecond.release();
+    }
+
+    public void third(Runnable printThird) throws InterruptedException {
+        semaphoreSecond.acquire();
         // printThird.run() outputs "third". Do not change or remove this line.
         printThird.run();
     }
