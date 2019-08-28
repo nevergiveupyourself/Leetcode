@@ -1,0 +1,33 @@
+# Read from the file file.txt and output the tenth line to stdout.
+sed -n 10p file.txt
+
+
+# practice sed 
+
+echo "hello world"
+sed -n '10p' file.txt
+sed "4a\ 
+newLine
+" file.txt
+sed '2,5d' file.txt
+
+sed '2d' file.txt
+sed '3,$d' file.txt
+sed '2i\
+drink tea
+' file.txt
+sed '2i\
+drink tea\
+drink bear
+' file.txt
+sed '2,5c\
+No line2-line5\
+' file.txt
+ sed '11d' file.txt
+sed -n '5,7p' file.txt
+sed '11d' file.txt
+sed -i '' '$a\
+Line 11
+' file.txt
+sed -i '' '2i\
+test\n' file.txt
