@@ -1,0 +1,26 @@
+class Solution {
+    public int uniqueMorseRepresentations(String[] words) {
+
+            String[] keyString={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+
+            String[] valueString={".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+
+            Map<String,String> morseMap=new HashMap<>();
+            for(int x=0;x<26;x++){
+                morseMap.put(keyString[x],valueString[x]);
+            }
+            //System.out.println("morseMap:"+morseMap);
+            Set<String> set=new HashSet<>();
+            String str;
+            for(int i=0;i<words.length;i++){
+                StringBuilder stringBuilder=new StringBuilder();
+                for(int j=0;j<words[i].length();j++){
+                    str=morseMap.get(String.valueOf(words[i].charAt(j)));
+                    stringBuilder.append(str);
+                }
+                set.add(stringBuilder.toString());
+            }
+            //System.out.println("set:"+set+"size:"+set.size());
+            return set.size();
+        }
+}
