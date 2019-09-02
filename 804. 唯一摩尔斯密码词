@@ -45,3 +45,19 @@ class Solution {
             return set.size();
         }
 }
+
+//方法三：方法二循环语句简化版本
+class Solution {
+    public int uniqueMorseRepresentations(String[] words) {
+        String[] morse={".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+        Set<String> set=new HashSet<>();
+        for(String word:words){
+            StringBuilder stringBuilder=new StringBuilder();
+            for(char ch:word.toCharArray()){
+                stringBuilder.append(morse[ch-'a']);
+            }
+            set.add(stringBuilder.toString());
+        }
+        return set.size();
+    }
+}
