@@ -1,3 +1,4 @@
+//方法一：利用2个String[],1个HashMap,1个HashSet,以及StringBuilder。
 class Solution {
     public int uniqueMorseRepresentations(String[] words) {
 
@@ -16,6 +17,26 @@ class Solution {
                 StringBuilder stringBuilder=new StringBuilder();
                 for(int j=0;j<words[i].length();j++){
                     str=morseMap.get(String.valueOf(words[i].charAt(j)));
+                    stringBuilder.append(str);
+                }
+                set.add(stringBuilder.toString());
+            }
+            //System.out.println("set:"+set+"size:"+set.size());
+            return set.size();
+        }
+}
+
+
+//方法二：利用1个String[](利用a对应0来,不用设置map),1个HashSet,以及StringBuilder。
+class Solution {
+    public int uniqueMorseRepresentations(String[] words) {
+            String[] valueString={".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+            Set<String> set=new HashSet<>();
+            String str;
+            for(int i=0;i<words.length;i++){
+                StringBuilder stringBuilder=new StringBuilder();
+                for(int j=0;j<words[i].length();j++){
+                    str=valueString[words[i].charAt(j)-'a'];//(利用a对应String[0]来,不用设置map)
                     stringBuilder.append(str);
                 }
                 set.add(stringBuilder.toString());
