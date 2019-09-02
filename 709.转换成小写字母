@@ -1,5 +1,22 @@
+//方法一：str.toLowerCase();
 class Solution {
     public String toLowerCase(String str) {
         return str.toLowerCase();
     }
+}
+
+//方法二：利用StringBuilder()和'a'-'A'=32
+class Solution {
+     public String toLowerCase(String str) {
+            StringBuilder stringBuilder=new StringBuilder();
+            char ch;
+            for(int i=0;i<str.length();i++){
+                ch=str.charAt(i);
+                if(ch>='A' && ch<='Z'){
+                    ch=(char)(ch+'a'-'A');            
+                }
+                stringBuilder.append(ch);
+            }
+            return stringBuilder.toString();
+        }
 }
