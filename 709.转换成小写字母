@@ -1,3 +1,5 @@
+//ascii码值(8位二进制数,定义128个字符):(1)0对应空字符,(2)97对应'a',(3)65对应'A',(4)48对应'0'
+
 //方法一：str.toLowerCase();
 class Solution {
     public String toLowerCase(String str) {
