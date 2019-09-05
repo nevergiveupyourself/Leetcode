@@ -1,0 +1,24 @@
+package sort;
+
+import java.util.Arrays;
+
+public class TestBubbleSort {
+    public static void main(String[] args) {
+        int[] array={28,32,14,12,53,42};
+        System.out.println("array:"+ Arrays.toString(array)+"After bubbleSort:"+Arrays.toString(TestBubbleSort.bubbleSort(array)));
+
+    }
+    private static int[] bubbleSort(int[] array){
+        int temp;
+        for(int j=1;j<array.length;j++){
+            for(int i=0;i<array.length-j;i++){
+                if(array[i]>array[i+1]){
+                    temp=array[i];
+                    array[i]=array[i+1];
+                    array[i+1]=temp;
+                }
+            }
+        }
+        return array;
+    }
+}
