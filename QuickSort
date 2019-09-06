@@ -1,0 +1,38 @@
+package sort;
+
+import java.util.Arrays;
+
+public class TestQuickSort {
+    public static void main(String[] args) {
+        int[] arr={5,3,7,6,4,1,0,2,9,10,8};
+        TestQuickSort.quickSort(arr,0,arr.length-1);
+        System.out.println("after quickSort arr:"+ Arrays.toString(arr));
+    }
+
+    public static void quickSort(int[] arr,int start,int end){
+        int i=start,j=end,key=arr[i];
+        while(i!=j){
+            while(i!=j) {
+                if(arr[j]<key){
+                    int temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                    break;
+                }
+                j--;
+            }
+            while(i!=j) {
+                if(arr[i]>key){
+                    int temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                    break;
+                }
+                i++;
+            }
+        }
+        if(i-1>start) quickSort(arr,start,i-1);
+        if(i+1<end) quickSort(arr,i+1,end);
+        System.out.println("i:"+i+",j:"+j);
+    }
+}
