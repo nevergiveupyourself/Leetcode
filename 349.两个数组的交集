@@ -15,7 +15,7 @@ public int[] intersection(int[] nums1, int[] nums2) {
         return Arrays.copyOf(numbers, index);
     }
  
- //方法二:使用set1.retainAll(set2),取set1和set2的交集,并将结果存于set1.
+ //方法二:使用set1.retainAll(set2),取set1和set2的交集,并将结果存于set1.(retain：保有)
  public int[] intersection(int[] nums1, int[] nums2) {
         Set<Integer> set1 = new HashSet<>();
         for (int num1 : nums1) set1.add(num1);
