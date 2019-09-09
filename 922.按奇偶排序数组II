@@ -31,8 +31,3 @@ public int[] sortArrayByParityII(int[] A) {
         }
         return A;
     }
-
-//转载自,作者：LeetCode
-//链接：https://leetcode-cn.com/problems/sort-array-by-parity-ii/solution/an-qi-ou-pai-xu-shu-zu-ii-by-leetcode/
-//来源：力扣（LeetCode）
-
