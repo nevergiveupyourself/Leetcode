@@ -1,4 +1,4 @@
-//方法一,常规方法,遍历,需要额外的一个数组
+//方法一:常规方法,遍历,需要额外的一个数组
 public int[] sortArrayByParityII(int[] A) {
         int[] arr=new int[A.length];
         for(int index=0,even=0,odd=1;index<A.length;index++){
@@ -12,4 +12,27 @@ public int[] sortArrayByParityII(int[] A) {
         }
         return arr;
     }
-//方法二,双指针
+
+
+//方法二:双指针.
+//(1)思路:我们可能会被面试官要求写出一种不需要开辟额外空间的解法。
+//在这个问题里面，一旦所有偶数都放在了正确的位置上，那么所有奇数也一定都在正确的位子上。所以只需要关注 A[0], A[2], A[4], ... 都正确就可以了。
+//将数组分成两个部分，分别是偶数部分 even = A[0], A[2], A[4], ... 和奇数部分 odd = A[1], A[3], A[5], ...。定义两个指针 i 和 j, 每次循环都需要保证偶数部分中下标 i 之前的位置全是偶数，奇数部分中下标 j 之前的位置全是奇数。
+//(2)算法:让偶数部分下标 i 之前的所有数都是偶数。为了实现这个目标，把奇数部分作为暂存区，不断增加指向奇数部分的指针，直到找到一个偶数，然后交换指针 i，j 所指的数。
+
+public int[] sortArrayByParityII(int[] A) {
+        for (int i = 0, j = 1; i < A.length; i = i + 2) {
+            if (A[i] % 2 == 1) {
+                while (A[j] % 2 == 1) j = j + 2;
+                int temp = A[j];
+                A[j] = A[i];
+                A[i] = temp;
+            }
+        }
+        return A;
+    }
+
+//转载自,作者：LeetCode
+//链接：https://leetcode-cn.com/problems/sort-array-by-parity-ii/solution/an-qi-ou-pai-xu-shu-zu-ii-by-leetcode/
+//来源：力扣（LeetCode）
+
