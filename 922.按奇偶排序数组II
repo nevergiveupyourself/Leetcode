@@ -1,3 +1,4 @@
+//方法一,常规方法,遍历,需要额外的一个数组
 public int[] sortArrayByParityII(int[] A) {
         int[] arr=new int[A.length];
         for(int index=0,even=0,odd=1;index<A.length;index++){
@@ -11,3 +12,4 @@ public int[] sortArrayByParityII(int[] A) {
         }
         return arr;
     }
+//方法二,双指针
