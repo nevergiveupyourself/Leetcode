@@ -10,3 +10,10 @@
         }
         return temp;
     }
+    
+//方法二：递归实现
+    public int fab1(int n){
+        if(n==0) return 0;
+        if(n==1) return 1;
+        return fab1(n-1)+fab1(n-2);
+    }
