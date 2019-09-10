@@ -1,4 +1,4 @@
-//方法一：循环判断,耗时久
+//方法一：朴素线性查找 【超时】
 public boolean containsDuplicate(int[] nums) {
          for(int i=0;i<nums.length;i++){
             int num=nums[i];
@@ -10,3 +10,19 @@ public boolean containsDuplicate(int[] nums) {
         return false; 
     }
 //方法二：
+
+
+
+
+//方法三：利用哈希表(HashSet)
+//利用支持快速搜索和插入操作的动态数据结构。
+//对于哈希表（Java 中的 HashSet 或 HashMap），search 和 insert 的平均时间复杂度为O(1)
+public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> set=new HashSet<>(nums.length);
+        for(int num:nums){
+            if(set.contains(num))
+                return true;
+            set.add(num);
+        }
+        return false;
+    }
