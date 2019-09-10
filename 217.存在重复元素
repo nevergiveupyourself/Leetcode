@@ -9,6 +9,7 @@ public boolean containsDuplicate(int[] nums) {
         }
         return false; 
     }
+    
 //方法二：排序【通过】【推荐】耗时7ms,内存消耗48MB
 public boolean containsDuplicate(int[] nums) {
         Arrays.sort(nums);
@@ -17,7 +18,17 @@ public boolean containsDuplicate(int[] nums) {
         }
         return false;
     }
-
+//此处的算法实现对原始数组进行排序，修改了原始数组。
+//通常，除非调用方清楚输入数据将被修改，否则不应该随意修改输入数据。可以先复制 nums，然后对副本进行操作。
+public boolean containsDuplicate(int[] nums) {
+        int[] nums_copy=Arrays.copyOf(nums,nums.length);
+        Arrays.sort(nums_copy);
+        for(int i=0;i<nums_copy.length-1;i++){
+            if(nums_copy[i]==nums_copy[i+1]) return true;
+        }
+        return false;
+    }
+    
 //方法三：利用哈希表(HashSet)【通过】耗时30ms左右,内存消耗50MB
 //利用支持快速搜索和插入操作的动态数据结构。
 //对于哈希表（Java 中的 HashSet 或 HashMap），search 和 insert 的平均时间复杂度为O(1)
