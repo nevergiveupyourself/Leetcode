@@ -9,12 +9,16 @@ public boolean containsDuplicate(int[] nums) {
         }
         return false; 
     }
-//方法二：
+//方法二：排序【通过】【推荐】耗时7ms,内存消耗48MB
+public boolean containsDuplicate(int[] nums) {
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length-1;i++){
+            if(nums[i]==nums[i+1]) return true;
+        }
+        return false;
+    }
 
-
-
-
-//方法三：利用哈希表(HashSet)
+//方法三：利用哈希表(HashSet)【通过】耗时30ms左右,内存消耗50MB
 //利用支持快速搜索和插入操作的动态数据结构。
 //对于哈希表（Java 中的 HashSet 或 HashMap），search 和 insert 的平均时间复杂度为O(1)
 public boolean containsDuplicate(int[] nums) {
