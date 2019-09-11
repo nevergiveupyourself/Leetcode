@@ -1,4 +1,4 @@
-//方法一：利用String累加,执行用时,内存消耗如下：243 ms,218.7 MB
+//方法一：利用String累加,执行用时,内存消耗如下：243 ms,218.7 MB(耗时相当大,不建议使用)
 public String reverseWords(String s) {
         String result="";
         String[] str=s.split(" ");
@@ -50,4 +50,19 @@ public String reverseWords(String s) {
 //            System.out.println("stringBuilder:"+stringBuilder);
         }
         return stringBuffer.toString();
+    }
+    
+    
+//方法四:利用StringBuilder+reverse,执行用时,内存消耗如下：16ms,49.2MB
+public String reverseWords(String s) {
+        String[] str_arr=s.split(" ");
+        StringBuilder stringBuilder=new StringBuilder();
+        for(int i=0;i<str_arr.length;i++){
+            StringBuilder stringBuilder1=new StringBuilder();
+            stringBuilder1.append(str_arr[i]);
+            stringBuilder1.reverse();
+            stringBuilder.append(stringBuilder1);
+            if(i!=str_arr.length-1) stringBuilder.append(" ");
+        }
+        return stringBuilder.toString();
     }
