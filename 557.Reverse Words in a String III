@@ -34,3 +34,20 @@ public String reverseWords(String s) {
         }
         return stringBuilder.toString();
     }
+
+//方法三:利用StringBuffer累加，执行用时,内存消耗如下：27ms,48.8MB(比方法二慢,StringBuffer效率低,但是是线程安全,适合多线程场景)
+ public String reverseWords(String s) {
+       String[] str_arr=s.split(" ");
+        StringBuffer stringBuffer=new StringBuffer();
+        for(int j=0;j<str_arr.length;j++){
+//            System.out.println("str:"+str_arr[j]);
+            for(int i=str_arr[j].length()-1;i>=0;i--){
+                char ch=str_arr[j].charAt(i);
+                stringBuffer.append(ch);
+            }
+//            System.out.println("stringBuilder:"+stringBuilder);
+            if(j!=str_arr.length-1) stringBuffer.append(" ");
+//            System.out.println("stringBuilder:"+stringBuilder);
+        }
+        return stringBuffer.toString();
+    }
