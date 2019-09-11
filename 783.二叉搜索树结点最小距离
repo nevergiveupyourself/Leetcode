@@ -1,0 +1,27 @@
+//783.二叉搜索树结点最小距离,list不能加static,否则只有一个类变量,多次测试不能通过
+    private static ArrayList<Integer> list=new ArrayList<>();
+
+//中序遍历二叉搜索树,可得到升序序列
+    public void traverseBST(TreeNode root){
+        if(root==null) return ;
+        traverseBST(root.left);
+        System.out.println("root.val:"+root.val);
+        list.add(root.val);
+        traverseBST(root.right);
+    }
+    public int minDiffInBST(TreeNode root) {
+        traverseBST(root);
+        System.out.println(list);
+        int[] arr=new int[list.size()-1];
+        for(int i=0;i<list.size()-1;i++){
+            arr[i]=list.get(i+1)-list.get(i);
+            System.out.println("list.get("+(i+1)+"):"+list.get(i+1));
+            System.out.println("list.get("+i+"):"+list.get(i));
+            System.out.println("arr["+i+"]"+arr[i]);
+//            arr[i]=list.indexOf(i+1)-list.indexOf(i);(这是判断i所在list的序号的,而非获取list的第i个值)
+        }
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+        System.out.println("arr[0]:"+arr[0]);
+        return arr[0];
+    }
