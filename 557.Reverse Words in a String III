@@ -66,3 +66,13 @@ public String reverseWords(String s) {
         }
         return stringBuilder.toString();
     }
+
+//方法五:方法四的简化版本,执行用时,内存消耗和方法四一致
+public String reverseWords(String s) {
+        String[] str_arr=s.split(" ");
+        StringBuilder stringBuilder=new StringBuilder();
+        for(String str:str_arr){
+            stringBuilder.append(new StringBuilder(str).reverse()).append(" ");
+        }
+        return stringBuilder.toString().trim();
+    }
