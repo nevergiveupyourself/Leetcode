@@ -19,7 +19,28 @@
         return temp;
     }
     
- //方法二(不带注释)：list不能加static,否则只有一个类变量,多次测试不能通过
+ //方法二：不存储中序遍历得到的值,当pre不为空时直接计算差值。
+    private TreeNode pre;
+    private int min=Integer.MAX_VALUE;
+
+    //中序遍历二叉搜索树,可得到升序序列
+    public void traverseBST(TreeNode root){
+        if(root==null) return ;
+        traverseBST(root.left);
+        if(pre!=null){
+            if(min>(root.val-pre.val)){
+                min=root.val-pre.val;
+            }
+        }
+        pre=root;
+        traverseBST(root.right);
+    }
+    public int minDiffInBST(TreeNode root) {
+        traverseBST(root);
+        return min;
+    }
+    
+ //方法三(带注释的方法一)：list不能加static,否则只有一个类变量,多次测试不能通过
      private ArrayList<Integer> list=new ArrayList<>();
 
     //中序遍历二叉搜索树,可得到升序序列
