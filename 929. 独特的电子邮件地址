@@ -1,0 +1,18 @@
+//方法一:利用StringBuilder,split,HashSet.
+public int numUniqueEmails(String[] emails) {
+        HashSet<String> hashSet=new HashSet<>();
+        for(String email:emails){
+            StringBuilder stringBuilder=new StringBuilder();
+            String localName=email.split("@")[0];
+            String domainName=email.split("@")[1];
+//            System.out.println(localName+"---"+domainName);
+            for(int i=0;i<localName.length();i++){
+                if(localName.charAt(i)=='+') break;
+                if(localName.charAt(i)!='.') stringBuilder.append(localName.charAt(i));
+            }
+            stringBuilder.append('@').append(domainName);
+            hashSet.add(stringBuilder.toString());
+//            System.out.println(stringBuilder.toString());
+        }
+        return hashSet.size();
+    }
