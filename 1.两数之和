@@ -63,12 +63,14 @@ public int[] twoSum(int[] nums, int target) {
  public int[] twoSum(int[] nums, int target) {
         HashMap<Integer,Integer> hashMap=new HashMap<>();
         for(int i=0;i<nums.length;i++){
-            //hashMap.put(nums[i],i);hashMap必须放在后面
+            //hashMap.put(nums[i],i);hashMap必须放在后面;理由有2点:(1)要if判断之后再put,以避免重复利用同样的值,比如a[0]和a[0].所以
+            //hashMap.get(temp)!=i不需要判断了
+            //(2)nums={3,3},target=6,会出现异常.
             int temp=target-nums[i];
             //System.out.println(hashMap.containsKey(temp)+"+"+hashMap.get(temp));
-            if(hashMap.containsKey(temp) && (hashMap.get(temp)!=i)){
+            if(hashMap.containsKey(temp)){
                 //System.out.println(hashMap.containsKey(temp)+"+"+hashMap.get(temp));
-                return new int[]{i,hashMap.get(temp)};
+                return new int[]{hashMap.get(temp),i};
             }
             hashMap.put(nums[i],i);
         }
