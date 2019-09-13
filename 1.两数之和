@@ -1,0 +1,24 @@
+//方法一：2个for循环
+public int[] twoSum(int[] nums, int target) {
+        int[] result=new int[2];
+        for(int i=0;i<nums.length-1;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[i]+nums[j]==target){
+                    result[0]=i;
+                    result[1]=j;
+                    return result;
+                }
+            }
+        }
+        return null;
+    }
+    
+//方法二：方法一的优化版本
+for(int i=0;i<nums.length-1;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[i]+nums[j]==target){
+                    return new int[]{i,j};
+                }
+            }
+        }
+        throw new IllegalArgumentException("no two sum solution");
