@@ -42,4 +42,19 @@ public int[] twoSum(int[] nums, int target) {
         }
         throw new IllegalArgumentException("no two sum solution");
     }
-//(2)方法三,正确示范
+//(2)方法三,正确示范,应该使用hashMap.put(数组值,序号),以及hashMap.get(数组值)
+public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer,Integer> hashMap=new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            hashMap.put(nums[i],i);
+        }
+        for(int i=0;i<nums.length;i++){
+            int temp=target-nums[i];
+            //System.out.println(hashMap.containsKey(temp)+"+"+hashMap.get(temp));
+            if(hashMap.containsKey(temp) && (hashMap.get(temp)!=i)){
+                //System.out.println(hashMap.containsKey(temp)+"+"+hashMap.get(temp));
+                return new int[]{i,hashMap.get(temp)};
+            }
+        }
+        throw new IllegalArgumentException("no two sum solution");
+    }
