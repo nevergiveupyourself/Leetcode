@@ -63,6 +63,7 @@ public int[] twoSum(int[] nums, int target) {
  public int[] twoSum(int[] nums, int target) {
         HashMap<Integer,Integer> hashMap=new HashMap<>();
         for(int i=0;i<nums.length;i++){
+            //hashMap.put(nums[i],i);hashMap必须放在后面
             int temp=target-nums[i];
             //System.out.println(hashMap.containsKey(temp)+"+"+hashMap.get(temp));
             if(hashMap.containsKey(temp) && (hashMap.get(temp)!=i)){
