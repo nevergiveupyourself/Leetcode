@@ -22,3 +22,24 @@ for(int i=0;i<nums.length-1;i++){
             }
         }
         throw new IllegalArgumentException("no two sum solution");
+        
+//方法三：二遍哈希表(hashmap),如果使用hashMap.put(序号,数组值),则使用hashMap.get(数组值)返回null,应该用hashMap.get(序号).然而我们需要获取的是序号值，
+//所以,应该使用hashMap.put(数组值,序号).
+
+//(1)方法三,错误示范
+public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer,Integer> hashMap=new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            hashMap.put(i,nums[i]);
+        }
+        for(int i=0;i<nums.length;i++){
+            int temp=target-nums[i];
+            System.out.println(hashMap.containsValue(temp)+"+"+hashMap.get(temp));
+            if(hashMap.containsValue(temp) && (hashMap.get(temp)!=i)){
+                System.out.println(hashMap.containsValue(temp)+"+"+hashMap.get(temp));
+                return new int[]{i,hashMap.get(temp)};
+            }
+        }
+        throw new IllegalArgumentException("no two sum solution");
+    }
+//(2)方法三,正确示范
