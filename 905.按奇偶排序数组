@@ -27,3 +27,5 @@ public int[] sortArrayByParity(int[] A) {
         }
         return A;
     }
+
+//方法三：原地算法，使用快排。
