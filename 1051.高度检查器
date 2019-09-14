@@ -1,0 +1,16 @@
+//方法一：排序数组后，和排序前的数组比较值。
+public int heightChecker(int[] heights) {
+     int index=0,N=heights.length;
+        int[] sortedHeights=new int[N];
+        for(int height:heights){
+            sortedHeights[index++]=height;
+        }
+        Arrays.sort(sortedHeights);
+        index=0;
+        for(int i=0;i<N;i++){
+            if(heights[i]!=sortedHeights[i]){
+                index++;
+            }
+        }
+        return index;
+    }
