@@ -1,8 +1,6 @@
 //方法一：循环遍历一次
-public int[] sortArrayByParity(int[] A) {
-        int N=A.length;
-        int i=0;
-        int j=N-1;
+ public int[] sortArrayByParity(int[] A) {
+        int N=A.length,i=0,j=N-1;
         int[] result=new int[N];
         for(int a:A){
             if(a%2==0){
