@@ -21,6 +21,15 @@ public int[] sortArrayByParity(int[] A) {
         }
         Arrays.sort(B, (a, b) -> Integer.compare(a%2, b%2));
         //Arrays.sort(B, Comparator.comparingInt(a -> a % 2));
+        /*Arrays.sort(B, (integer, t1) -> {
+            if(integer%2>t1%2){
+                return 1;
+            }else if(integer%2<t1%2){
+                return -1;
+            }else{
+                return 0;
+            }
+        });*/
         index=0;
         for(int b:B){
             A[index++]=b;
