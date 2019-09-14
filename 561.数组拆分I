@@ -3,7 +3,7 @@ public int arrayPairSum(int[] nums) {
         int sum=0,N=nums.length;
         Arrays.sort(nums);
         for(int i=0;i<N;i=i+2){
-            sum=sum+Math.min(nums[i],nums[i+1]);
+            sum=sum+nums[i];
         }
         return sum;
     }
