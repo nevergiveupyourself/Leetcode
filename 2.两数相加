@@ -1,0 +1,45 @@
+//方法一(错误示范):会出现int整数溢出的问题,当数值大于2^31-1的时候
+public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        double sum1 = 0,sum2=0,sum,temp;
+        int i=0;
+        while(l1!=null){
+            temp=l1.val*Math.pow(10,i++);
+            sum1=sum1+temp;
+            l1=l1.next;
+        }
+        i=0;
+        while(l2!=null){
+            temp=l2.val*Math.pow(10,i++);
+            sum2=sum2+temp;
+            l2=l2.next;
+        }
+        sum=sum1+sum2;
+        System.out.println("sum1:"+sum1+",sum2:"+sum2+",sum:"+sum);
+        System.out.println("(int)sum:"+(int)sum+"sum:"+sum);
+//        String[] sum_str=((int) sum+"").split("");//2147483647==2^31-1
+        String[] sum_str=(sum+"").split("");
+//        System.out.println("sum_str:"+sum_str[0]+sum_str[1]+sum_str[2]);
+        ListNode listNode=initListNode(transStringToInt(sum_str));
+//        System.out.println(listNode.toString());
+        return listNode;
+    }
+    //将String数组转换为int数组,并颠倒顺序
+    public int[] transStringToInt(String[] strings){
+        int length=strings.length;
+        int[] arr=new int[length];
+        int index=length-1;
+        for(String str:strings){
+            System.out.println("str:"+str);
+            arr[index--]=Integer.parseInt(str);
+        }
+        return arr;
+    }
+    public ListNode initListNode(int[] arr){
+        ListNode head = new ListNode(0);
+        ListNode current = head;
+        for(int val : arr){
+            current.next = new ListNode(val);
+            current = current.next;
+        }
+        return head.next;
+    }
