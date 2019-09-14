@@ -1,0 +1,38 @@
+//方法一：利用ArrayList<HashMap>,耗时56ms
+public List<String> commonChars(String[] A) {
+       ArrayList<HashMap> list=new ArrayList<>(A.length);
+        for(int i=0;i<A.length;i++){
+            HashMap<Character,Integer> hashMap=new HashMap<>();
+            String str=A[i];
+            for(int j=0;j<str.length();j++){
+                char ch=str.charAt(j);
+                if(hashMap.containsKey(ch)){
+                    hashMap.put(ch,hashMap.get(ch)+1);
+                }else{
+                    hashMap.put(ch,1);
+                }
+            }
+            list.add(hashMap);
+        }
+        Set<Character> set=list.get(0).keySet();
+        List<String> result_list=new ArrayList<>();
+
+        for(Character ch:set){
+            int min=(int) list.get(0).get(ch);
+            for(int k=1;k<list.size();k++){
+                if(list.get(k).get(ch)!=null){
+                    int count= (int) list.get(k).get(ch);
+                    min=Math.min(min,count);
+                }else{
+                    min=Integer.MAX_VALUE;
+                    break;
+                }
+            }
+            if(min!=Integer.MAX_VALUE){
+                for(int i=0;i<min;i++){
+                    result_list.add(ch.toString());
+                }
+            }
+        }
+        return result_list;
+    }
