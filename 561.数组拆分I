@@ -1,0 +1,9 @@
+//方法一：排序后相加
+public int arrayPairSum(int[] nums) {
+        int sum=0,N=nums.length;
+        Arrays.sort(nums);
+        for(int i=0;i<N;i=i+2){
+            sum=sum+Math.min(nums[i],nums[i+1]);
+        }
+        return sum;
+    }
