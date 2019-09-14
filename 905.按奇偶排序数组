@@ -11,3 +11,19 @@
         }
         return result;
     }
+    
+//方法二：使用排序算法，按照模 2 的结果排序。
+public int[] sortArrayByParity(int[] A) {
+        int index=0;
+        Integer[] B=new Integer[A.length];
+        for(int a:A){
+            B[index++]=a;
+        }
+        Arrays.sort(B, (a, b) -> Integer.compare(a%2, b%2));
+        //Arrays.sort(B, Comparator.comparingInt(a -> a % 2));
+        index=0;
+        for(int b:B){
+            A[index++]=b;
+        }
+        return A;
+    }
