@@ -1,0 +1,33 @@
+//ListNode的定义,并重写ListNode.toString()方法
+public class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) {
+            val = x;
+        }
+
+        //重写toString()方法
+        @Override
+        public String toString() {
+            String s = "";
+            ListNode current = this;
+            while (current != null) {
+                s = s + current.val;
+                if (current.next != null) {
+                    s = s + "-->";
+                }
+                current = current.next;
+            }
+            return s;
+        }
+    }
+    
+    public ListNode initListNode(int[] arr){
+        ListNode head = new ListNode(0);
+        ListNode current = head;
+        for(int val : arr){
+            current.next = new ListNode(val);
+            current = current.next;
+        }
+          return head.next;
+    }
