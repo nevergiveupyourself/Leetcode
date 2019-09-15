@@ -66,4 +66,7 @@ public List<String> commonChars(String[] A) {
         return list_str;
     }
 
-//方法三，利用数组int[] ans=new int[26]存储26个字母在各个
+//方法三，利用数组int[] ans=new int[26]存储26个字母在各个字符串中出现的最小次数(初始化为Integer.MAX_VALUE),利用Math.min来计算最小值
+//然后返回List<String>.
+
+        for(int i=0;i<A[0].length();i++){
