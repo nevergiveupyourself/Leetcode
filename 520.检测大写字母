@@ -1,6 +1,6 @@
 //方法一：排除法，除了单词的大写用法正确的案例之外的用法，都是错误的。
+//执行用时2ms，内存消耗35.4MB
 
-//520.检测大写字母，执行用时2ms，内存消耗35.4MB
     public boolean detectCapitalUse(String word) {
         int length = word.length();
         char first_char = word.charAt(0);//首字母
@@ -44,4 +44,23 @@
         return false;
     }
     
- //方法二：统计大小写字母的个数，如下3种情况返回true：全部是大写；全部是小写；首字母是大写，其余是小写。
+//方法二：统计大小写字母的个数，如下3种情况返回true：全部是大写；全部是小写；首字母是大写，其余是小写。
+//执行用时2ms，内存消耗35.4MB
+ public boolean detectCapitalUse2(String word){
+        int length=word.length();
+        int upperNum=0,lowerNum=0;
+        for(int i=0;i<word.length();i++){
+            char ch=word.charAt(i);
+            if(ch>='A' && ch<='Z'){
+                upperNum++;
+            }else{
+                lowerNum++;
+            }
+        }
+        //System.out.println("lowerNum:"+lowerNum+"upperNum:"+upperNum+"length:"+length);
+        //注意判断首字母是大写
+        if(upperNum==length || lowerNum==length || (upperNum==1 && word.charAt(0)>='A' && word.charAt(0)<='Z')){
+            return true;
+        }
+        return false;
+    }
