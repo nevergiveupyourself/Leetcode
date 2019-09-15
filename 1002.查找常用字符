@@ -38,7 +38,7 @@ public List<String> commonChars(String[] A) {
     }
 
 //方法二,利用List<List>,耗时34ms
-public List<String> commonChars(String[] A) {
+public List<String> commonChars1(String[] A) {
        List<List> list=new ArrayList<>();
         for(int i=0;i<A.length;i++){
             List<Character> characters=new ArrayList<>();
@@ -67,6 +67,31 @@ public List<String> commonChars(String[] A) {
     }
 
 //方法三，利用数组int[] ans=new int[26]存储26个字母在各个字符串中出现的最小次数(初始化为Integer.MAX_VALUE),利用Math.min来计算最小值
-//然后返回List<String>.
-
-        for(int i=0;i<A[0].length();i++){
+//然后返回List<String>.(运行耗时12ms)
+public List<String> commonChars2(String[] A){
+        int[] ans=new int[26];
+        for(int i=0;i<26;i++){
+            ans[i]=Integer.MAX_VALUE;
+        }
+        for(String str:A){
+            int[] temp=new int[26];
+            for(int i=0;i<26;i++){
+                temp[i]=0;
+            }
+            for(int i=0;i<str.length();i++){
+                char ch=str.charAt(i);
+                temp[ch-'a']++;
+            }
+            for(int i=0;i<26;i++){
+                ans[i]=Math.min(temp[i],ans[i]);
+            }
+        }
+        List<String> list=new ArrayList<>();
+        for(int i=0;i<26;i++){
+            while(ans[i]>0){
+                list.add((char)('a'+i)+"");
+                ans[i]--;
+            }
+        }
+        return list;
+    }
