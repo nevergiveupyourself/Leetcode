@@ -65,3 +65,5 @@ public List<String> commonChars(String[] A) {
         }
         return list_str;
     }
+
+//方法三，利用数组int[] ans=new int[26]存储26个字母在各个
