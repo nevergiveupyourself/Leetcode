@@ -1,0 +1,6 @@
+//方法一：利用replace替换，注意replace,replaceAll,replaceFirst的区别。
+public String defangIPaddr(String address) {
+        String ans=address;
+        ans=ans.replace(".","[.]");
+        return ans;
+    }
