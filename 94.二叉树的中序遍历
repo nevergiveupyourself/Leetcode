@@ -1,4 +1,4 @@
-//方法一：递归
+//方法一：递归，执行用时1ms,内存消耗35.7MB
 private List<Integer> list=new ArrayList<>();
     public List<Integer> inorderTraversal(TreeNode root) {
         if(root == null) return list;
