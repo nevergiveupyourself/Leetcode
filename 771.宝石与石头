@@ -1,4 +1,4 @@
-//方法一：HashMap
+//方法一：HashMap,耗时4ms,内存消耗34.9MB
 HashMap<Character,Integer> hashMap=new HashMap<>();
         for(int i=0;i<J.length();i++){
             char ch=J.charAt(i);
