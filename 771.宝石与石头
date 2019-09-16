@@ -1,4 +1,5 @@
 //方法一：HashMap,耗时4ms,内存消耗34.9MB
+public int numJewelsInStones(String J, String S) {
 HashMap<Character,Integer> hashMap=new HashMap<>();
         for(int i=0;i<J.length();i++){
             char ch=J.charAt(i);
@@ -12,3 +13,14 @@ HashMap<Character,Integer> hashMap=new HashMap<>();
             }
         }
         return numbers;
+        }
+
+//方法二：利用replace函数,耗时33ms,内存消耗37.8MB
+public int numJewelsInStones(String J, String S) {
+        String copy= S;
+        for(int i=0;i<J.length();i++){
+            copy=copy.replace(J.charAt(i)+"","");
+        }
+        System.out.println("copy:"+copy);
+        return S.length()-copy.length();
+        }
