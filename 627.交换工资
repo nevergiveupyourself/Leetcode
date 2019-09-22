@@ -1,0 +1,4 @@
+#使用 UPDATE 和 CASE...WHEN
+# Write your MySQL query statement below
+# update salary set sex=replace(sex,'f','m')
+update salary set sex=case sex when 'm' then 'f' else 'm' end;
