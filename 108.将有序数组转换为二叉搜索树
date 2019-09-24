@@ -14,7 +14,7 @@ public TreeNode sortedArrayToBST(int[] nums) {
     }
     private TreeNode sortedArrayToBST(int[] nums,int start,int end){
         if(start==end) return null;
-        int mid=(start+end)>>>1;//相当于int mid=(start+end)/2;
+        int mid=(start+end)>>>1;//相当于int mid=(start+end)/2;(无符号右移1位,性能要好于:/2）
         TreeNode root=new TreeNode(nums[mid]);
         root.left=sortedArrayToBST(nums,start,mid);
         root.right=sortedArrayToBST(nums,mid+1,end);
