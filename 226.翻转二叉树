@@ -7,3 +7,5 @@ public TreeNode invertTree(TreeNode root) {
         root.left = right;
         return root;
     }
+
+//方法二：迭代，用queue
