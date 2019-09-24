@@ -1,10 +1,10 @@
-//方法一：递归,有序数组的中间位置即为二叉搜索树的根节点
+//方法一：递归,有序数组的中间位置即为二叉搜索树的根节点,注意数组的边界问题
 public TreeNode sortedArrayToBST(int[] nums) {
         return sortedArrayToBST(nums,0,nums.length);
     }
     private TreeNode sortedArrayToBST(int[] nums,int start,int end){
         if(start==end) return null;
-        int mid=(start+end)>>>1;
+        int mid=(start+end)>>>1;//相当于int mid=(start+end)/2;
         TreeNode root=new TreeNode(nums[mid]);
         root.left=sortedArrayToBST(nums,start,mid);
         root.right=sortedArrayToBST(nums,mid+1,end);
