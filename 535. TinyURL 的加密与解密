@@ -1,3 +1,4 @@
-方法 3：使用hashcode [Accepted]
-算法：这种方法中，我们使用一种内建函数hashCode()，hashCode() 来为每一个 URL 产生加密结果。同样的，映射结果保存在 HashMap 中以供解码。
-一个 String 对象的 hash code 计算方法如图
+#方法 3：使用hashcode [Accepted]
+#算法：这种方法中，我们使用一种内建函数hashCode()，hashCode() 来为每一个 URL 产生加密结果。同样的，映射结果保存在 HashMap 中以供解码。
+#一个 String 对象的 hash code 计算方法如图
+#int类型没有hashCode()方法，只有它的包装数据类型Integer这个类才有。
